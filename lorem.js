@@ -1,6 +1,14 @@
 var fs = require('fs');
-var words = fs.readFileSync('db/guunmong.txt').toString().split("\n");
-var words_dot = fs.readFileSync('db/guunmong-dot.txt').toString().split("\n");
+var path = require('path');
+
+var words = fs
+  .readFileSync(path.resolve(__dirname, "db/guunmong.txt"))
+  .toString()
+  .split("\n");
+var words_dot = fs
+  .readFileSync(path.resolve(__dirname, "db/guunmong-dot.txt"))
+  .toString()
+  .split("\n");
 
 var get_random_word = function(db) {
   return db[Math.floor(Math.random()*db.length)];
